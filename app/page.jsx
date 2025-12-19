@@ -1,6 +1,12 @@
 import HeroSection from "@/components/hero";
 import { Card, CardContent } from "@/components/ui/card";
-import statsData, { featuresData, howItWorksData } from "@/data/landing";
+import statsData, {
+  featuresData,
+  howItWorksData,
+  testimonialsData
+} from "@/data/landing";
+
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -59,6 +65,43 @@ export default function Home() {
             </div>
         </div>
       </section>
+
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12">
+              What our users say
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {testimonialsData.map((testimonial, index) => (
+                <Card key={index} className="p-6">
+                  <CardContent className="pt-4">
+                    <div className="flex items-center gap-4 mb-4">
+                      <Image
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        width={40}
+                        height={40}
+                        className="rounded-full"
+                      />
+
+                      <div>
+                        <div className="font-semibold leading-tight">
+                          {testimonial.name}
+                        </div>
+                        <div className="text-gray-500 text-sm">
+                          {testimonial.role}
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-gray-500 italic">
+                      “{testimonial.quote}”
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+        </div>
+      </section>  
     </div>
   );
 }
