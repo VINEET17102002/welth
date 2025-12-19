@@ -123,3 +123,49 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* @layer utilities {
+  .gradient {
+    @apply bg-gradient-to-br from-blue-600 to-purple-600;
+  }
+
+  .gradient-title {
+    @apply font-extrabold tracking-tighter pr-2 pb-2 text-transparent bg-clip-text;
+    @apply bg-gradient-to-br from-blue-600 to-purple-600;
+  }
+} */
+
+@layer utilities {
+  .gradient-title {
+    @apply font-extrabold text-transparent bg-clip-text;
+    background-image: linear-gradient(15deg, #141250, #130f47);
+  }
+}
+
+/* .hero-image-wrapper {
+  perspective: 1000px;
+}
+
+.hero-image {
+  transition: rotateX(15deg) scale(1);
+  transition: transform 0.5s ease-out;
+  will-change: transform;
+}
+
+.hero-image.scrolled {
+  transition: rotateX(0deg) scale(1) translateY(40px); 
+} */
+
+.hero-image-wrapper {
+  perspective: 1200px;
+}
+
+.hero-image {
+  transform: rotateX(15deg) scale(1);
+  transition: transform 0.5s ease-out;
+  will-change: transform;
+}
+
+.hero-image.scrolled {
+  transform: rotateX(0deg) scale(1) translateY(40px);
+}
